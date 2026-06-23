@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Quiz</title>
+    <link rel="stylesheet" href="styles/style.css" />
+    <script src="script/init.js" type="module"></script>
+    <script src="script/app.js" type="module"></script>
+  </head>
+  <body>
+    <main class="app-container">
+      <section class="active screen js-home-page">
+        <h1 style="font-size: 1.5rem">
+          Évaluez vos connaissances avec des séries de questions !
+        </h1>
+        <p style="font-weight: bold; font-style: italic">
+          Par quel cours voulez-vous commencer ?
+        </p>
+        <div class="courses-grid js-courses-grid"></div>
+      </section>
+
+      <section class="screen js-quiz-page">
+        <h2 class="question-text js-question-text">Question</h2>
+        <button class="pause-play-btn js-pause-play-btn" title="Pause" disabled>
+          <i class="fas fa-pause js-pause-play pause"></i>
+        </button>
+        <div class="quiz-infos">
+          <p>
+            Question: <span id="current-question">0</span> /
+            <span class="js-max-question max-question">0</span>
+          </p>
+          <p>Score: <span id="current-score">0</span></p>
+        </div>
+
+        <ul class="answers-container js-answers-container"></ul>
+
+        <div class="progress-container">
+          <div class="progress-bar js-progress-bar"></div>
+        </div>
+      </section>
+
+      <section class="screen result-page js-result-page">
+        <h2 class="quiz-result-heading">Résultats du Quiz !</h2>
+        <div class="result-infos">
+          <p>
+            Vous avez obtenu <span id="final-score">0</span> sur
+            <span class="js-max-question max-question">0</span>
+          </p>
+          <p class="motivation-message js-motivation-message">Greet</p>
+        </div>
+        <button id="restart-btn">Recommencer</button>
+      </section>
+
+      <footer>
+        <p>
+          &copy; <span id="current-year"></span>
+          <span id="author-name">Marc Vivien KUMBAN</span>
+          
+        <div class="footer-socials">
+          <a href="https://wa.me/237679652624" target="_blank" rel="noopener noreferrer" title="Discuter sur WhatsApp">
+            <i class="fab fa-whatsapp whatsapp-icon"></i>
+          </a>
+        </div>
+        </p>
+      </footer>
+    </main>
+  </body>
+</html>
