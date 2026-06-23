@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://localhost:3000/api/v1";
+const API_BASE_URL = "https://quiz-project-rosy-gamma.vercel.app/api/v1";
 
 export const fetchQuestionsByLesson = async (lessonName) => {
   const response = await fetch(`${API_BASE_URL}/questions?lecon=${lessonName}`);
