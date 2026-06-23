@@ -18,9 +18,12 @@ app.use("/api/v1", questionRouter);
 
 app.use(errorMiddleware);
 
-app.listen(PORT, async () => {
-  console.log(`The server is listening on http://localhost:${PORT}`);
-  await connectDB();
-});
+connectDB();
+
+if (process.env.NODE_ENV !== "production") {
+  app.listen(PORT, async () => {
+    console.log(`The server is listening on http://localhost:${PORT}`);
+  });
+}
 
 export default app;
