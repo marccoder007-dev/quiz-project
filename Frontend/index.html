@@ -29,9 +29,6 @@
 
       <section class="screen js-quiz-page">
         <h2 class="question-text js-question-text">Question</h2>
-        <button class="pause-play-btn js-pause-play-btn" title="Pause" disabled>
-          <i class="fas fa-pause js-pause-play pause"></i>
-        </button>
         <div class="quiz-infos">
           <p>
             Question: <span id="current-question">0</span> /
@@ -41,6 +38,15 @@
         </div>
 
         <ul class="answers-container js-answers-container"></ul>
+
+        <div class="quiz-navigation">
+          <button id="prev-btn" class="nav-btn">
+            ⬅️ Précédent
+          </button>
+          <button id="next-btn" class="nav-btn">
+            Suivant ➡️
+          </button>
+        </div>
 
         <div class="progress-container">
           <div class="progress-bar js-progress-bar"></div>
