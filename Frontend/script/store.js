@@ -2,6 +2,7 @@ export const store = {
   questions: [],
   currentQuestionIndex: 0,
   score: 0,
+  userAnswers: [],
   answersDisabled: false,
 
   getPercent() {
@@ -14,6 +15,7 @@ export const store = {
     this.questions = [];
     this.currentQuestionIndex = 0;
     this.score = 0;
+    this.userAnswers = new Array(this.questions.length).fill(null);
     this.answersDisabled = false;
   },
 };
