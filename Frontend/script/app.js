@@ -17,6 +17,7 @@ const motivationMessageEl = document.querySelector(".js-motivation-message");
 const restartBtnEl = document.getElementById("restart-btn");
 const prevBtnEl = document.getElementById("prev-btn");
 const nextBtnEl = document.getElementById("next-btn");
+const returnHomePageEls = document.querySelectorAll(".js-return-home-page");
 
 // Navigation Management
 prevBtnEl.addEventListener("click", () => navigateQuiz(-1));
@@ -116,6 +117,7 @@ function renderQuiz(questions) {
     return;
   }
 
+  homePageEl.classList.remove("active");
   quizPageEl.classList.add("active");
 
   maxQuestionsEl.forEach((el) => (el.textContent = store.questions.length));
@@ -282,3 +284,11 @@ function saveToSession() {
     JSON.stringify(sessionData),
   );
 }
+
+returnHomePageEls.forEach((returnBtn) => {
+  returnBtn.addEventListener("click", () => {
+    homePageEl.classList.add("active");
+    resultPageEl.classList.remove("active");
+    quizPageEl.classList.remove("active");
+  });
+});

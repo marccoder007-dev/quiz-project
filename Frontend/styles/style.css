@@ -39,6 +39,26 @@ body {
   font-family: serif;
 }
 
+.return-home-page {
+  margin-bottom: 15px;
+  color: blue;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: all 0.2s ease-in-out;
+  border: none;
+  background: none;
+  padding: 3px 5px;
+  border-radius: 6px;
+}
+
+.return-home-page:hover {
+  text-decoration: underline;
+}
+
+.return-home-page:active {
+  color: var(--primary-color);
+}
+
 h1 {
   font-size: 1.1rem;
   margin-bottom: 2rem;
