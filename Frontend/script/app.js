@@ -140,7 +140,16 @@ function renderQuiz(questions) {
     return;
   }
 
-  questionTextEl.textContent = currentQuestion.questionText;
+  // Modification : utilisation de innerHTML pour permettre l'affichage des balises générées par KaTeX
+  questionTextEl.innerHTML = currentQuestion.questionText;
+
+  // Lancement du rendu mathématique pour l'énoncé de la question
+  if (window.renderMathInElement) {
+    renderMathInElement(questionTextEl, {
+      delimiters: [{ left: "$", right: "$", display: false }],
+    });
+  }
+
   answerContainerEl.innerHTML = "";
 
   const savedAnswer = store.userAnswers[currentIndex];
@@ -148,7 +157,9 @@ function renderQuiz(questions) {
   currentQuestion.options.forEach((option, index) => {
     const button = document.createElement("button");
 
-    button.textContent = option;
+    // Modification : utilisation de innerHTML pour formater les formules dans les options
+    button.innerHTML = option;
+
     button.classList.add("answer-btn");
     button.id = index;
     button.dataset.questionId = currentQuestion._id;
@@ -172,6 +183,13 @@ function renderQuiz(questions) {
     }
 
     answerContainerEl.appendChild(button);
+
+    // Lancement du rendu mathématique pour chaque bouton d'option d'une question
+    if (window.renderMathInElement) {
+      renderMathInElement(button, {
+        delimiters: [{ left: "$", right: "$", display: false }],
+      });
+    }
   });
 }
 
