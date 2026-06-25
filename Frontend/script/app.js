@@ -19,6 +19,17 @@ const prevBtnEl = document.getElementById("prev-btn");
 const nextBtnEl = document.getElementById("next-btn");
 const returnHomePageEls = document.querySelectorAll(".js-return-home-page");
 
+// FONCTION UTILITAIRE POUR ÉCHAPPER LE HTML
+function escapeHTML(str) {
+  if (!str) return "";
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
 // Navigation Management
 prevBtnEl.addEventListener("click", () => navigateQuiz(-1));
 nextBtnEl.addEventListener("click", () => navigateQuiz(1));
@@ -142,8 +153,8 @@ function renderQuiz(questions) {
     return;
   }
 
-  // Modification : utilisation de innerHTML pour permettre l'affichage des balises générées par KaTeX
-  questionTextEl.innerHTML = currentQuestion.questionText;
+  // Échappe d'abord le texte pour éviter que le navigateur interprète les balises (ex: <canvas>)
+  questionTextEl.innerHTML = escapeHTML(currentQuestion.questionText);
 
   // Lancement du rendu mathématique pour l'énoncé de la question
   if (window.renderMathInElement) {
@@ -159,8 +170,8 @@ function renderQuiz(questions) {
   currentQuestion.options.forEach((option, index) => {
     const button = document.createElement("button");
 
-    // Modification : utilisation de innerHTML pour formater les formules dans les options
-    button.innerHTML = option;
+    // Échappe le texte de l'option avant de l'injecter
+    button.innerHTML = escapeHTML(option);
 
     button.classList.add("answer-btn");
     button.id = index;
